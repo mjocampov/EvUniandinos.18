@@ -34,17 +34,17 @@ class SessionBar extends React.Component{
     if(this.state.signUp == true){
       return(
         <div className="SessionBar">
-          <SignUp show={true} onClick={this.ChangeVisibility}/>
+          <SignUp show={true} onClick={this.ChangeVisibility} changeState={this.props.changeState}/>
           <LogIn show={false} onClick={this.ChangeVisibility}/>
 
         </div>
       );
     }
-    if(this.state.logIn == true){
+    else if(this.state.logIn == true){
       return(
         <div className="SessionBar">
           <LogIn show={true} onClick={this.ChangeVisibility} />
-          <SignUp show={false} onClick={this.ChangeVisibility }/>
+          <SignUp show={false} onClick={this.ChangeVisibility } changeState={this.props.changeState}/>
         </div>
       );
     }

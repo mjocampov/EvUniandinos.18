@@ -17,6 +17,19 @@ class PopularEvents extends React.Component{
     });
   }
 
+  componentDidMount(){
+    console.log("llegue aki");
+    fetch("/events")
+      .then(res =>
+        res.json()
+        )
+      .then(eventos =>
+        this.setState({
+          popular_events: eventos
+        })
+      );
+  }
+
   render(){
     let events = this.state.popular_events.map((event, index) =>
       <div id="index">

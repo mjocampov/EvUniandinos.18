@@ -13,26 +13,46 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      estado: "EventOverview"
+      estado: "LogIn",
+      user:{}
     }
+  };
+
+  changeStateToHome = (userName, userMail, userPassword, userBirthday) =>{
+    this.setState({
+      estado:"Home",
+      user:{
+        name: userName,
+        mail: userMail,
+        password: userPassword,
+        bithday: userBirthday
+      }
+    });
   };
 
 
   render(){
+    console.log(this.state);
     if(this.state.estado==="LogIn"){
       return(
         <div className="AppLogIn">
           <PopularEvents />
-          <SessionBar />
+          <SessionBar changeState={this.changeStateToHome} />
         </div>
       );
     }
     else if(this.state.estado==="Home"){
+       let userName = this.state.user.name;
+      let userMail = this.state.user.email;
+      let userBirthday = this.state.user.birthday;
+      console.log("Index.state: " + this.state.user.name + this.state.user.email + this.state.user.birthday)
       return(
         <div className="AppHome">
-          <ProfileBar />
-          <SearchBar />
-          <PopularEvents />
+          <ProfileBar name={userName} mail={userMail} birthday={userBirthday}/>
+          <div>
+            <SearchBar />
+            <PopularEvents />
+          </div>
         </div>
       );
     }
