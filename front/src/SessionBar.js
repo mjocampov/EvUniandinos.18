@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import "./css/SessionBar.css";
 import LogIn from "./LogIn.js"
@@ -31,7 +30,7 @@ class SessionBar extends React.Component{
   };
 
   render(){
-    if(this.state.signUp == true){
+    if(this.state.signUp === true){
       return(
         <div className="SessionBar">
           <SignUp show={true} onClick={this.ChangeVisibility} changeState={this.props.changeState}/>
@@ -40,11 +39,11 @@ class SessionBar extends React.Component{
         </div>
       );
     }
-    else if(this.state.logIn == true){
+    else if(this.state.logIn === true){
       return(
         <div className="SessionBar">
-          <LogIn show={true} onClick={this.ChangeVisibility} />
-          <SignUp show={false} onClick={this.ChangeVisibility } changeState={this.props.changeState}/>
+          <LogIn show={true} onClick={this.ChangeVisibility} changeState={this.props.changeState} />
+          <SignUp show={false} onClick={this.ChangeVisibility} />
         </div>
       );
     }

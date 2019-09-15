@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import "./css/SignUp.css";
 
@@ -15,8 +14,6 @@ class SignUp extends React.Component{
   }
 
   postUser = () => {
-
-
     fetch("/users", {
       method: 'POST', // or 'PUT'
       body: JSON.stringify(
@@ -36,8 +33,10 @@ class SignUp extends React.Component{
     .catch(error => console.error('Error:', error))
     .then(response =>
       console.log('Success:', response),
-      console.log("En SignUp: " +this.state.birthdateUserInput),
-      this.props.changeState(this.state.nameUserInput, this.state.emailUserInput, this.state.passwordUserInput, this.state.birthdateUserInput),
+      console.log("En SignUp: " + this.state.nameUserInput + " " + this.state.emailUserInput + " " +
+       this.state.passwordUserInput + " " + this.state.birthdateUserInput),
+      this.props.changeState(this.state.nameUserInput, this.state.emailUserInput,
+        this.state.passwordUserInput, this.state.birthdateUserInput),
     );
   };
 
@@ -58,7 +57,7 @@ class SignUp extends React.Component{
   };
 
   render(){
-    if(this.props.show==true){
+    if(this.props.show===true){
       return(
       <div className="SignUp">
         <div className="Inputs">

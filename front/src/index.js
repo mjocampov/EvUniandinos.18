@@ -14,25 +14,52 @@ class App extends React.Component {
     super(props);
     this.state={
       estado: "LogIn",
-      user:{}
+      user:{},
+      searchFilterValue: "",
+      event:{}
     }
   };
 
-  changeStateToHome = (userName, userMail, userPassword, userBirthday) =>{
+  changeStateToHome = (userName, userMail, userPassword, userBirthday, events) =>{
     this.setState({
       estado:"Home",
       user:{
         name: userName,
         mail: userMail,
         password: userPassword,
-        bithday: userBirthday
+        birthday: userBirthday,
+        events: events
       }
     });
   };
 
+  changeStateToEventOverview = (evento) =>{
+    console.log(evento);
+    this.setState({
+      estado:"EventOverview",
+      event:{
+        name: evento.name,
+        description: evento.description,
+        topic: evento.topic,
+        date: evento.date,
+        interval: evento.interval,
+        place: evento.place,
+        cupos: evento.cupos,
+        grade: evento.grade
+      }
+    });
+  };
+
+  handleChangeSearchFilter = (search) =>{
+      this.setState({
+          searchFilterValue: search
+      });
+  };
+
 
   render(){
-    console.log(this.state);
+      console.log(this.state.searchFilterValue);
+
     if(this.state.estado==="LogIn"){
       return(
         <div className="AppLogIn">
@@ -42,32 +69,43 @@ class App extends React.Component {
       );
     }
     else if(this.state.estado==="Home"){
-       let userName = this.state.user.name;
-      let userMail = this.state.user.email;
+      let userName = this.state.user.name;
+      let userMail = this.state.user.mail;
       let userBirthday = this.state.user.birthday;
-      console.log("Index.state: " + this.state.user.name + this.state.user.email + this.state.user.birthday)
+
+      console.log("Index Filter Value: " + this.state.searchFilterValue);
       return(
         <div className="AppHome">
           <ProfileBar name={userName} mail={userMail} birthday={userBirthday}/>
           <div>
-            <SearchBar />
-            <PopularEvents />
+            <SearchBar
+                searchFilterValue={this.state.searchFilterValue}
+                handleFilterTextChange = {this.handleChangeSearchFilter}
+            />
+            <PopularEvents
+                filter={this.state.searchFilterValue}
+                onClick={this.changeStateToEventOverview}
+            />
           </div>
         </div>
       );
     }
     else if(this.state.estado==="EventOverview"){
+      let event = this.state.event;
+      let userName = this.state.user.name;
+      let userMail = this.state.user.mail;
+      let userBirthday = this.state.user.birthday;
       return(
         <div className="AppHome">
-          <ProfileBar />
+          <ProfileBar name={userName} mail={userMail} birthday={userBirthday}/>
           <Event
-            name="Kendo"
-            topic="Deportes"
-            date="17/09/2019"
-            description="Ven a practicar con nosotros!"
-            place="CentroDeprotivo - Canchas de Squash"
-            cupos={20}
-            calificacion={4}
+            name={event.name}
+            topic={event.topic}
+            date={event.date}
+            description={event.description}
+            place={event.place}
+            cupos={event.cupos}
+            calificacion={event.grade}
           />
         </div>
       );

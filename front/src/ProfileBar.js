@@ -3,12 +3,11 @@ import React from "react";
 import "./css/ProfileBar.css";
 
 class ProfileBar extends React.Component{
-  constructor(props){
+  /*constructor(props){
     super(props);
-  }
+  }*/
 
   render(){
-    console.log("ProfileBar.props: " + this.props.name + this.props.mail+  this.props.birthday);
     return(
     <div className="ProfileBar">
       <h4>Nombre: {this.props.name}</h4>

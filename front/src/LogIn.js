@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
 import "./css/LogIn.css";
 
@@ -11,8 +10,13 @@ class LogIn extends React.Component{
     };
   }
 
+  getUser = () =>{
+    this.props.changeState("Jesús Orlando Cárcamo Posada", "jo.carcamo@uniandes.edu.co",
+      "123", "2001-15-02");
+  };
+
   render(){
-    if(this.props.show==true){
+    if(this.props.show===true){
       return(
       <div className="LogIn">
         <div className="Inputs">
@@ -23,7 +27,7 @@ class LogIn extends React.Component{
           <input type="password"
             placeholder="Contraseña"
           />
-          <button id="btnLogInActive">
+          <button id="btnLogInActive" onClick={this.getUser}>
             LogIn
           </button>
         </div>
