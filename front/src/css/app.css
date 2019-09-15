@@ -1,0 +1,15 @@
+.AppLogIn{
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template: 100% / 80% 20%;
+
+}
+
+.AppHome{
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template: 100% / 20% 80%;
+
+}

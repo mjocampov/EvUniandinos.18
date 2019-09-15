@@ -1,0 +1,32 @@
+.SignUp{
+  margin: 0;
+  border-bottom: 5px solid black;
+  background-color: blue;
+}
+
+.Inputs{
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template: 1fr / 1fr;
+  grid-gap: 20px 2px;
+}
+/*
+#btnSignUpActive{
+  width: 100px;
+  height: 20px;
+  margin-left: 40%;
+}
+
+#btnSignUpInactive{
+  position: relative;
+  top: 100px;
+  left: 105px;
+  height: 20px;
+  width: 100px;
+}
+
+input{
+  height: 20px;
+  width: 200px;
+}*/
