@@ -56,6 +56,7 @@ class PopularEvents extends React.Component{
     else{
       events = this.state.popular_events.map((event, index) =>
         <div key={index}>
+          //Code Review-Andrea Beltrán: Class or ClassName?                                  
           <h2 onClick={this.handleOnClick} class="EventName"> {event.name}</h2>
           <p>{event.description}</p>
         </div>
