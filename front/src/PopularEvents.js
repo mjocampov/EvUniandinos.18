@@ -36,6 +36,7 @@ class PopularEvents extends React.Component{
   render(){
     let eventsFiltered = [];
     let filter = this.props.filter;
+    //Code Review-Andrea Beltrán: OnClick nunca es usada
     let onClick = this.props.onClick;
     let events;
 
@@ -47,6 +48,7 @@ class PopularEvents extends React.Component{
 
         events = eventsFiltered.map((event, index) =>
           <div key={index}>
+            //Code Review-Andrea Beltrán: Class or ClassName?
             <h2 onClick={this.handleOnClick} class="EventName">{event.name}</h2>
             <p>{event.description}</p>
           </div>
