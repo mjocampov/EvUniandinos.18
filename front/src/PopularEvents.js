@@ -30,6 +30,7 @@ class PopularEvents extends React.Component{
     let clickedEvent = this.state.popular_events.filter( event =>
         event.name === e.currentTarget.innerHTML
     );
+    // Code Review by @dnarvaez27: onClick function is not defined in certain cases (Check index.js (66))
     this.props.onClick(clickedEvent[0]);
   };
 
