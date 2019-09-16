@@ -10,6 +10,7 @@ class LogIn extends React.Component{
     };
   }
 
+  // Code Review by @dnarvaez27: Burned Credentials
   getUser = () =>{
     this.props.changeState("Jesús Orlando Cárcamo Posada", "jo.carcamo@uniandes.edu.co",
       "123", "2001-15-02");
