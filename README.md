@@ -73,6 +73,6 @@ Open your CMD en clone the repositorie, using the next command:
 María José Ocampo Vargas - https://github.com/mjocampov
 Jesús Orlando Cárcamo Posada - https://github.com/Berserker1523
 # Screenshots
-![alt text](https://66.media.tumblr.com/4640ea523f7ee8e06e666e196c6cd582/tumblr_pwh4saQzYL1srjdm2o1_540.png)
+![alt text]([img]https://i.imgur.com/zHcBI9f.png[/img])
 # MIT License
 You can find the license right here: https://github.com/mjocampov/EvUniandinos.18/blob/master/LICENSE
